@@ -1,0 +1,122 @@
+import simplegui
+
+# Create Global Variable
+z=300
+x=-5
+f=-100
+cloud=-1400
+bird=-600
+grass= 500
+def draw_handler(canvas):
+    r = 162
+    g = 130
+    b = 2
+  
+    for r in range(256):
+        color = "rgb(" + str(r) + ", " + str(g) + ", " + str(b) + ")"
+        
+    global cloud
+    global z    
+    global x
+    global y
+    global f
+    global bird
+    global grass
+    
+    if grass!=480:
+        grass=grass-1
+    
+    if bird!=610:
+        bird= bird + 4
+    
+    if x!=580:
+        x= x + 5
+    y=- 5
+    
+    if f!=700:
+        f= f+2
+    
+    if y!=57:
+        y= y + 5
+        
+        
+    
+
+ #shooter
+    canvas.draw_line([500, 500], [450, 450], 5, "black")
+    canvas.draw_line([400, 500], [450, 450], 5, "black")
+    canvas.draw_polygon([(350,450),(500,450),(500,400),(350,400)],1,"black","green")
+    #ground
+    canvas.draw_polygon([(0,600), (600, 600), (600,500), (0,500)], 1,"black", color)
+    
+    #sun
+    canvas.draw_circle((x,50), 50, 1, "white", "yellow")
+    
+    canvas.draw_line([450, 50], [x, 50], 5, "yellow")
+    canvas.draw_line([575, 150], [x, 100], 5, "yellow")
+    canvas.draw_line([480, 120], [x, 80], 5, "yellow")
+    #balls
+    canvas.draw_circle((570,490),10,1,"black","white")
+    canvas.draw_circle((550,490),10,1,"black","white")
+    canvas.draw_circle((560,473),10,1,"black","white")
+    canvas.draw_circle((560,473),10,1,"black","white")
+    canvas.draw_circle((560,473),10,1,"black","white")
+    
+    #ball in shooter
+    z=z-3
+    if(z<=50):
+        z=300 
+        
+    
+    canvas.draw_circle((z,400),10,1,"black","white")
+    #ring
+    canvas.draw_line([50,500],[50,450],2,"black")
+    canvas.draw_circle((50,415),50,1,"black","white")
+    canvas.draw_circle((50,415),40,1,"black","black")
+    canvas.draw_circle((50,415),30,1,"black","blue")
+    canvas.draw_circle((50,415),20,1,"black","red")
+    canvas.draw_circle((50,415),10,1,"black","yellow")
+    #fly
+    canvas.draw_circle((f,200),10,1,"black","gray")
+    canvas.draw_circle((f+3,197),2,1,"black","green")
+    canvas.draw_line([f+10,205],[f,223],4,"black")
+    canvas.draw_line([f-5,210],[f-10,230],4,"black")
+    canvas.draw_line([f-5,195],[f-20,174],4,"black")
+    canvas.draw_line([f-5,195],[f-40,188],4,"black")
+    #ufo
+    if cloud!=700:
+        cloud= cloud+10
+    canvas.draw_circle((cloud,30), 50, 1, "white", "gray")
+    canvas.draw_circle((cloud,30), 25, 1, "white", "black")
+    #bird
+    canvas.draw_circle((bird,150),20,1,"black","yellow")
+    canvas.draw_line([bird-30,150],[bird-20,150],4,"black")
+    canvas.draw_circle((bird,140),3,1,"black","black")
+    canvas.draw_line([bird,135],[bird,120],4,"black")
+    canvas.draw_circle((bird,120),3,1,"black","black")
+    #mouse
+    canvas.draw_line([100,510],[100,grass],4,"green")
+    canvas.draw_line([110,510],[110,grass],4,"green")
+    canvas.draw_line([120,510],[120,grass],4,"green")
+    canvas.draw_line([130,510],[130,grass],4,"green")
+    canvas.draw_line([140,510],[140,grass],4,"green")
+    canvas.draw_line([150,510],[150,grass],4,"green")
+    canvas.draw_line([160,510],[160,grass],4,"green")
+    canvas.draw_line([170,510],[170,grass],4,"green")
+    canvas.draw_line([180,510],[180,grass],4,"green")
+    canvas.draw_line([190,510],[190,grass],4,"green")
+    canvas.draw_line([200,510],[200,grass],4,"green")
+    canvas.draw_line([210,510],[210,grass],4,"green")
+    canvas.draw_line([220,510],[220,grass],4,"green")
+    canvas.draw_line([230,510],[230,grass],4,"green")
+    canvas.draw_line([240,510],[240,grass],4,"green")
+    canvas.draw_line([250,510],[250,grass],4,"green")
+    canvas.draw_line([260,510],[260,grass],4,"green")
+    canvas.draw_line([270,510],[270,grass],4,"green")
+    canvas.draw_line([280,510],[280,grass],4,"green")
+    canvas.draw_line([290,510],[290,grass],4,"green")
+    canvas.draw_line([300,510],[300,grass],4,"green")
+frame = simplegui.create_frame('Testing', 600, 600)
+frame.set_canvas_background("white")
+frame.set_draw_handler(draw_handler)
+frame.start()
